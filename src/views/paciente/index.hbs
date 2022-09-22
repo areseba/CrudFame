@@ -1,0 +1,38 @@
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-purple-500 text-white">
+          <th class="w-20 py-4 ...">ID</th>
+          <th class="w-1/6 py-4 ...">NOMBRE</th>
+          <th class="w-1/6 py-4 ...">APELLIDO</th>
+          <th class="w-1/6 py-4 ...">CELULAR</th>
+          <th class="w-1/6 py-4 ...">TIPO PATOLOGIA</th>
+          <th class="w-1/6 py-4 ...">PRESTADOR DE SALUD</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each reg}}
+        <tr>
+          <td class="py-3 px-6">{{id}}</td>
+          <td class="p-3">{{Nombre}}</td>
+          <td class="p-3">{{Apellido}}</td>
+          <td class="p-3">{{Celular}}</td>
+          <td class="p-3">{{Tipo}}</td>
+          <td class="p-3">{{Prestador}}</td>
+          <td class="p-3 flex">
+            <form action="/paciente/delete" method="POST" class="mx-2">
+              <input type="hidden" value="{{id}}" name="id">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+            <a href="/paciente/edit/{{id}}" class="bg-purple-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
